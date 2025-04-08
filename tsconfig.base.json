@@ -13,14 +13,16 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "@my-app/*": ["apps/my-apps/src/*"],
       "@my-monorepo/*": ["apps/my-monorepo/src/*"],
       "@my-monorepo/my-new-lib/*": ["libs/my-new-lib/src/*"],
       "@my-monorepo/test-new": ["test-new/src/index.ts"],
-      "@my-monorepo/ui": ["libs/ui/src/index.ts"]
+      "@my-monorepo/ui": ["libs/ui/src/index.ts"],
+      "@dir/*": ["*"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
 }
