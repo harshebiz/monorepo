@@ -9,7 +9,7 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["package.json"],
+        "assets": ["apps/my-apps/package.json"],
         "message": "Released version: ${nextRelease.version}"
       }
     ]
