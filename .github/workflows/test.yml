@@ -1,0 +1,91 @@
+# name: Release Version
+
+# on:
+#   push:
+#     branches:
+#       - main # Runs only when merging to main
+#     tag:
+#       - 'v2.*' # Runs only when pushing a new tag
+
+# jobs:
+#   release:
+#     runs-on: ubuntu-latest
+#     permissions: # ✅ ADD THIS
+#       contents: write # Required to push commits/tags
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 20 # Ensure using Node.js 20+
+
+#       - name: Install dependencies
+#         run: npm install --save-dev semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/npm conventional-changelog-conventionalcommits @semantic-release/exec
+
+#       - name: Run Semantic Release
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Ensure GitHub token is used
+#         run: npx semantic-release
+
+
+
+name: Release Version
+
+on:
+  push:
+    branches:
+      - main  # This will trigger the release process when pushing to the main branch
+
+jobs:
+  release-my-apps:
+    name: Release My Apps
+    runs-on: ubuntu-latest
+    permissions: # ✅ ADD THIS
+      contents: write # Required to push commits/tags
+    working-directory: ./apps/my-apps
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run semantic-release for My Apps
+        run: npm run release
+        env:
+          CI: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # run: npx semantic-release
+
+  release-my-monorepo:
+    name: Release My Monorepo
+    runs-on: ubuntu-latest
+    working-directory: ./apps/my-monorepo
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run semantic-release for My Monorepo
+        run: npm run release
+        env:
+          CI: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
