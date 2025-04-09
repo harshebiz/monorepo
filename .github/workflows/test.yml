@@ -27,7 +27,6 @@ jobs:
       - name: Run semantic-release for My Apps
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEBUG: semantic-release*
         run: npx semantic-release --config ./apps/my-apps/release.config.js
 
   release-my-monorepo:
@@ -51,5 +50,4 @@ jobs:
       - name: Run semantic-release for My Monorepo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEBUG: semantic-release*
         run: npx semantic-release --config ./apps/my-monorepo/.releaserc.json
