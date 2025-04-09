@@ -1,18 +1,12 @@
 {
-  "branches": ["main"],
+  "branches": ["dev"],
   "initialVersion": "2.0.0",
   "tagFormat": "my-monorepo-v${version}",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    { "path": "@semantic-release/npm", "npmPublish": false },
-    [
-      "@semantic-release/git",
-      {
-        "assets": ["apps/my-monorepo/package.json"],
-        "message": "Released version: ${nextRelease.version}"
-      }
-    ]
+    "@semantic-release/changelog",
+    "@semantic-release/git"
   ],
   "preset": "conventionalcommits",
   "releaseRules": [
