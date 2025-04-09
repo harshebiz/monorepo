@@ -1,4 +1,4 @@
-{
+module.exports = {
   "branches": ["main"],
   "initialVersion": "2.0.0",
   "tagFormat": "my-apps-v${version}",
