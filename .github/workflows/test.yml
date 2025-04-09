@@ -19,14 +19,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 20
+          node-version: 20.18.0
 
       - name: Install dependencies
         run: npm install
 
       - name: Run semantic-release for My Apps
+        CI: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # DEBUG: semantic-release*
         run: npx semantic-release --config ./apps/my-apps/.releaserc.json
 
   release-my-monorepo:
@@ -42,7 +44,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 20
+          node-version: 20.18.0
 
       - name: Install dependencies
         run: npm install
@@ -50,4 +52,5 @@ jobs:
       - name: Run semantic-release for My Monorepo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEBUG: semantic-release*
         run: npx semantic-release --config ./apps/my-monorepo/.releaserc.json
