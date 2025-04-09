@@ -5,14 +5,8 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    { "path": "@semantic-release/npm", "npmPublish": false },
-    [
-      "@semantic-release/git",
-      {
-        "assets": ["apps/my-apps/package.json"],
-        "message": "Released version: ${nextRelease.version}"
-      }
-    ]
+    "@semantic-release/changelog",
+    "@semantic-release/git"
   ],
   "preset": "conventionalcommits",
   "releaseRules": [
