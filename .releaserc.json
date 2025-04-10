@@ -1,5 +1,5 @@
 {
-  "branches": ["dev"],
+  "branches": ["main"],
   "initialVersion": "2.0.0",
   "tagFormat": "my-monorepo-v${version}",
   "plugins": [
