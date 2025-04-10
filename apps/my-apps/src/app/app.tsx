@@ -1,6 +1,7 @@
 import NxWelcome from './nx-welcome';
 import {version} from '../../../../package.json'
 
+// 3.0.0
 export function App() {
   return (
     <div>
