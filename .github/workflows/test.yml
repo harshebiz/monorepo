@@ -29,25 +29,25 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
-  release-my-monorepo:
-    name: Release My Monorepo
-    runs-on: ubuntu-latest
-    permissions: # ✅ ADD THIS
-      contents: write # Required to push commits/tags
+  # release-my-monorepo:
+  #   name: Release My Monorepo
+  #   runs-on: ubuntu-latest
+  #   permissions: # ✅ ADD THIS
+  #     contents: write # Required to push commits/tags
     
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 20.18.0
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 20.18.0
 
-      - name: Install dependencies
-        run: npm install
+  #     - name: Install dependencies
+  #       run: npm install
 
-      - name: Run semantic-release for My Monorepo
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+  #     - name: Run semantic-release for My Monorepo
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       run: npx semantic-release
