@@ -3,7 +3,7 @@ name: Release Version
 on:
   push:
     branches:
-      - development  # This will trigger the release process when pushing to the development branch
+      - main  # This will trigger the release process when pushing to the development branch
 
 jobs:
   release-my-apps:
